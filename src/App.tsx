@@ -628,10 +628,12 @@ export default function HomePage() {
      UI
      =============================== */
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
+    <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-amber-50">
+      {/* Soft radial background accent */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-amber-100/40 via-transparent to-transparent" />
+
       {/* Header */}
-      <header className="relative bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white shadow-2xl">
-        <div className="absolute inset-0 bg-gradient-to-r from-amber-600/10 to-transparent"></div>
+      <header className="sticky top-0 z-50 backdrop-blur-xl bg-slate-900/80 border-b border-slate-800/60 text-white shadow-xl">
         <div className="relative max-w-7xl mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-3">
@@ -674,7 +676,7 @@ export default function HomePage() {
                     Admin
                   </Button>
                 </DialogTrigger>
-                <DialogContent className="sm:max-w-[600px] bg-slate-900 border-slate-700 text-white">
+                <DialogContent className="sm:max-w-[600px] bg-slate-900/95 border-slate-700 text-white backdrop-blur-xl">
                   <DialogHeader>
                     <DialogTitle className="text-amber-400 flex items-center">
                       <Lock className="w-5 h-5 mr-2" />
@@ -775,7 +777,7 @@ export default function HomePage() {
       <main className="relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 py-20 lg:py-32">
           <div className="text-center max-w-4xl mx-auto">
-            <div className="mb-8 inline-flex items-center px-4 py-2 bg-amber-100 text-amber-800 rounded-full text-sm font-medium">
+            <div className="mb-8 inline-flex items-center px-4 py-2 bg-amber-100 text-amber-800 rounded-full text-sm font-medium shadow-sm">
               <Award className="w-4 h-4 mr-2" />
               Tecnología de Vanguardia para el Sector Legal
             </div>
@@ -797,7 +799,7 @@ export default function HomePage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-700 hover:to-amber-600 text-white px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duración-300 transform hover:scale-105 font-semibold"
+                className="bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-700 hover:to-amber-600 text-white px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 font-semibold"
               >
                 Solicitar Demostración Gratuita
               </Button>
@@ -838,7 +840,10 @@ export default function HomePage() {
                   description: "Acceso a una vasta biblioteca jurídica actualizada constantemente con las últimas normativas.",
                 },
               ].map((feature, index) => (
-                <Card key={index} className="p-8 hover:shadow-xl transition-all duration-300 border-0 bg-white/80 backdrop-blur-sm">
+                <Card
+                  key={index}
+                  className="p-8 bg-white/70 backdrop-blur-md border border-slate-200/50 hover:shadow-amber-200/30 hover:scale-[1.02] transition-all duration-500 rounded-2xl"
+                >
                   <CardContent className="p-0 text-center">
                     <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-amber-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                       <feature.icon className="w-8 h-8 text-white" />
@@ -854,7 +859,7 @@ export default function HomePage() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-slate-900 text-slate-300">
+      <footer className="bg-gradient-to-b from-slate-900 via-slate-950 to-black text-slate-400 border-t border-slate-800/60">
         <div className="max-w-7xl mx-auto px-6 py-12">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
             <div>
@@ -872,7 +877,7 @@ export default function HomePage() {
             </div>
 
             <div>
-              <h4 className="font-semibold text-white mb-4">Servicios</h4>
+              <h4 className="font-semibold text-amber-400 mb-4">Servicios</h4>
               <ul className="space-y-2 text-sm">
                 <li>
                   <a href="#" className="hover:text-amber-400 transition-colors">
@@ -898,7 +903,7 @@ export default function HomePage() {
             </div>
 
             <div>
-              <h4 className="font-semibold text-white mb-4">Empresa</h4>
+              <h4 className="font-semibold text-amber-400 mb-4">Empresa</h4>
               <ul className="space-y-2 text-sm">
                 <li>
                   <a href="#" className="hover:text-amber-400 transition-colors">
@@ -924,7 +929,7 @@ export default function HomePage() {
             </div>
 
             <div>
-              <h4 className="font-semibold text-white mb-4">Contacto</h4>
+              <h4 className="font-semibold text-amber-400 mb-4">Contacto</h4>
               <div className="space-y-3 text-sm">
                 <div className="flex items-center space-x-2">
                   <Phone className="w-4 h-4 text-amber-400" />
@@ -953,7 +958,7 @@ export default function HomePage() {
       {/* Elegant Floating Chatbot */}
       <div className="fixed bottom-20 right-6 z-50">
         {chatOpen ? (
-          <Card className="w-96 h-[32rem] shadow-2xl border-0 rounded-2xl overflow-hidden bg-slate-900/95 backdrop-blur-sm">
+          <Card className="w-96 h-[32rem] shadow-2xl border-0 rounded-2xl overflow-hidden bg-slate-900/95 backdrop-blur-md">
             <CardContent className="p-0 flex flex-col h-full">
               {/* Chat Header */}
               <div className="bg-gradient-to-r from-slate-800 to-slate-700 p-4 flex justify-between items-center border-b border-slate-600">
@@ -978,8 +983,8 @@ export default function HomePage() {
                     <div
                       className={`p-3 rounded-2xl max-w-[85%] text-sm leading-relaxed shadow-lg ${
                         msg.sender === "user"
-                          ? "bg-gradient-to-r from-amber-500 to-amber-600 text-white ml-auto rounded-br-md"
-                          : "bg-white/95 text-slate-800 rounded-bl-md border border-slate-200"
+                          ? "bg-gradient-to-r from-amber-600 via-amber-500 to-amber-400 text-white ml-auto rounded-br-md"
+                          : "bg-gradient-to-r from-slate-100 to-slate-200 text-slate-800 rounded-bl-md border border-slate-300/40 shadow-inner"
                       }`}
                     >
                       {msg.text}
@@ -1030,14 +1035,16 @@ export default function HomePage() {
           <div className="relative group">
             <button
               onClick={() => setChatOpen(true)}
-              className="flex items-center justify-center w-16 h-16 rounded-2xl shadow-2xl bg-gradient-to-br from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 transition-all duration-300 transform hover:scale-110 relative"
+              className="relative flex items-center justify-center w-16 h-16 rounded-2xl shadow-2xl bg-gradient-to-br from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 transition-all duration-300 transform hover:scale-110"
             >
-              <MessageSquare className="w-7 h-7 text-white" />
+              {/* Glow halo */}
+              <span className="before:content-[''] before:absolute before:inset-0 before:rounded-2xl before:bg-gradient-to-br before:from-amber-400/40 before:to-amber-600/40 before:blur-xl before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-500" />
+              <MessageSquare className="w-7 h-7 text-white relative z-10" />
               <div className="absolute -top-2 -right-2 w-4 h-4 bg-green-500 rounded-full border-2 border-white animate-pulse"></div>
             </button>
 
             {/* Tooltip */}
-            <div className="absolute bottom-full right-0 mb-2 opacity-0 group-hover:opacity-100 transition-all duración-300 pointer-events-none">
+            <div className="absolute bottom-full right-0 mb-2 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
               <div className="bg-slate-800 text-white text-sm font-medium px-4 py-2 rounded-lg shadow-xl whitespace-nowrap">
                 Consulte con LEX IA
                 <div className="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-slate-800"></div>
